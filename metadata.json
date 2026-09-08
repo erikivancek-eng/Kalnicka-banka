@@ -1,0 +1,6 @@
+{
+  "name": "Kalnička Banka",
+  "description": "Moderna internetska banka za praćenje transakcija, stanja računa i povijesti s administratorskim i korisničkim sučeljem.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalnička Banka - Mobilno i Internetsko Bankarstvo</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0066cc',
+                            600: '#0052a3',
+                            700: '#003d7a',
+                            800: '#002952',
+                            900: '#001429',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-brand-100 selection:text-brand-700">
+
+    <!-- TOP DECORATIVE BAR -->
+    <div class="h-1.5 w-full bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400"></div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow flex flex-col">
+        
+        <!-- 1. LOGIN SCREEN -->
+        <div id="login-screen" class="flex-grow flex items-center justify-center p-4 md:p-8">
+            <div class="w-full max-w-md bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
+                <div class="bg-gradient-to-b from-brand-700 to-brand-900 text-white p-8 text-center relative">
+                    <!-- Decorative background accents -->
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-2xl mb-4 backdrop-blur-md border border-white/20 shadow-inner">
+                        <span class="text-4xl">🏦</span>
+                    </div>
+                    <h1 class="text-2xl font-bold font-display tracking-tight">Kalnička Banka</h1>
+                    <p class="text-blue-200 text-sm mt-1">Sigurno mobilno i internetsko bankarstvo</p>
+                </div>
+                
+                <div class="p-8">
+                    <div class="mb-4 text-center">
+                        <p class="text-xs font-medium text-slate-500">Molimo unesite Vaše korisničko ime i pripadajući PIN / lozinku za pristup računu.</p>
+                    </div>
+
+                    <form id="login-form" class="space-y-4">
+                        <div>
+                            <label for="username" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1.5">Korisničko ime</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i data-lucide="user" class="h-4 w-4 text-slate-400"></i>
+                                </div>
+                                <input type="text" id="username" required class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all" placeholder="Upišite korisničko ime">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <label for="password" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider">Lozinka / PIN</label>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i data-lucide="key-round" class="h-4 w-4 text-slate-400"></i>
+                                </div>
+                                <input type="password" id="password" required class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all" placeholder="Upišite lozinku">
+                            </div>
+                        </div>
+
+                        <div id="login-error" class="hidden text-rose-500 text-xs font-medium bg-rose-50 p-3 rounded-lg border border-rose-100 flex items-center gap-2">
+                            <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+                            <span>Neispravno korisničko ime ili lozinka!</span>
+                        </div>
+
+                        <button type="submit" class="w-full flex justify-center items-center gap-2 py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 cursor-pointer text-sm">
+                            <i data-lucide="log-in" class="w-4 h-4"></i> Prijavi se u sustav
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="bg-slate-50 border-t border-slate-100 px-8 py-4 text-center">
+                    <p class="text-[11px] text-slate-400">© 2026 Kalnička Banka d.d. Sva prava pridržana.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 2. APP VIEW (LOGGED IN) -->
+        <div id="app-view" class="hidden flex-col flex-grow">
+            <!-- NAVIGATION BAR -->
+            <header class="bg-white border-b border-slate-100 sticky top-0 z-30 shadow-sm">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center gap-3">
+                            <span class="text-3xl filter drop-shadow">🏦</span>
+                            <div>
+                                <span class="font-display font-bold text-lg md:text-xl text-brand-800 tracking-tight">Kalnička Banka</span>
+                                <span class="hidden md:inline-flex ml-2 px-2 py-0.5 bg-brand-50 text-[10px] text-brand-700 font-bold uppercase rounded-md tracking-wider border border-brand-100">Live</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 md:gap-4">
+                            <!-- User Welcome and Role Badge -->
+                            <div class="text-right">
+                                <div class="text-xs text-slate-400 font-medium">Prijavljeni ste kao:</div>
+                                <div class="flex items-center gap-1.5 justify-end">
+                                    <span id="header-user-display" class="text-sm font-semibold text-slate-700">Gost</span>
+                                    <span id="header-role-badge" class="px-1.5 py-0.5 text-[9px] font-bold rounded uppercase"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="h-8 w-[1px] bg-slate-200"></div>
+
+                            <!-- Logout Button -->
+                            <button onclick="logout()" class="inline-flex items-center gap-1.5 py-2 px-3 bg-slate-50 hover:bg-rose-50 text-slate-600 hover:text-rose-600 text-xs font-semibold rounded-xl border border-slate-200 hover:border-rose-100 transition-all cursor-pointer">
+                                <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+                                <span class="hidden sm:inline">Odjava</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SUB HEADER ALERT / INFO FOR PLAYERS -->
+            <div id="player-welcome-banner" class="hidden bg-gradient-to-r from-blue-500 to-brand-600 text-white py-3 px-4 shadow-inner">
+                <div class="max-w-7xl mx-auto flex items-center justify-between text-xs md:text-sm">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4 flex-shrink-0 animate-pulse"></i>
+                        <span>Dobrodošli u svoje osobno bankarstvo. Možete vidjeti svoje stanje i povijest. Transakcije obavlja isključivo bankar (Admin).</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DASHBOARD CONTAINER -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 flex-grow w-full">
+                
+                <!-- =============== A. ADMIN DASHBOARD =============== -->
+                <div id="admin-view" class="hidden space-y-6 md:space-y-8">
+                    
+                    <!-- 1. CARDS OF ALL PLAYERS -->
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4"></i> Pregled računa klijenata
+                            </h2>
+                            <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-100" id="admin-total-vault">Ukupno u trezoru: 0 €</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Card Erik -->
+                            <div onclick="selectTxPlayer('erik'); document.getElementById('transaction-form')?.scrollIntoView({ behavior: 'smooth' });" class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-blue-900 rounded-2xl shadow-lg text-white p-6 relative overflow-hidden transform hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl transition-all duration-300 border border-indigo-950 cursor-pointer active:scale-[0.99]" id="offline-card-erik">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-8 -mt-8 blur-lg"></div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <p class="text-indigo-200 text-xs font-semibold tracking-wider uppercase">Vlasnik računa</p>
+                                        <h3 class="text-xl font-bold font-display tracking-wide mt-0.5">Erik</h3>
+                                    </div>
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30 uppercase tracking-wider">Aktivno</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-indigo-200 text-xs font-medium">Raspoloživo stanje</p>
+                                    <div class="text-2xl md:text-3xl font-bold font-display tracking-tight mt-1 flex items-baseline gap-1">
+                                        <span id="admin-balance-erik" class="font-display font-bold">50.000</span>
+                                        <span class="text-lg font-medium text-indigo-200">€</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-indigo-200 font-mono">
+                                    <span>IBAN: HR93 2500 0001 ERIK</span>
+                                    <i data-lucide="credit-card" class="w-4 h-4 text-indigo-300"></i>
+                                </div>
+                            </div>
+
+                            <!-- Card Nera -->
+                            <div onclick="selectTxPlayer('nera'); document.getElementById('transaction-form')?.scrollIntoView({ behavior: 'smooth' });" class="bg-gradient-to-br from-violet-900 via-violet-800 to-purple-900 rounded-2xl shadow-lg text-white p-6 relative overflow-hidden transform hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl transition-all duration-300 border border-violet-950 cursor-pointer active:scale-[0.99]" id="offline-card-nera">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-8 -mt-8 blur-lg"></div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <p class="text-violet-200 text-xs font-semibold tracking-wider uppercase">Vlasnik računa</p>
+                                        <h3 class="text-xl font-bold font-display tracking-wide mt-0.5">Nera</h3>
+                                    </div>
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30 uppercase tracking-wider">Aktivno</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-violet-200 text-xs font-medium">Raspoloživo stanje</p>
+                                    <div class="text-2xl md:text-3xl font-bold font-display tracking-tight mt-1 flex items-baseline gap-1">
+                                        <span id="admin-balance-nera" class="font-display font-bold">50.000</span>
+                                        <span class="text-lg font-medium text-violet-200">€</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-violet-200 font-mono">
+                                    <span>IBAN: HR93 2500 0002 NERA</span>
+                                    <i data-lucide="credit-card" class="w-4 h-4 text-violet-300"></i>
+                                </div>
+                            </div>
+
+                            <!-- Card Vito -->
+                            <div onclick="selectTxPlayer('vito'); document.getElementById('transaction-form')?.scrollIntoView({ behavior: 'smooth' });" class="bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-900 rounded-2xl shadow-lg text-white p-6 relative overflow-hidden transform hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl transition-all duration-300 border border-sky-950 cursor-pointer active:scale-[0.99]" id="offline-card-vito">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-8 -mt-8 blur-lg"></div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <p class="text-sky-200 text-xs font-semibold tracking-wider uppercase">Vlasnik računa</p>
+                                        <h3 class="text-xl font-bold font-display tracking-wide mt-0.5">Vito</h3>
+                                    </div>
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 text-[10px] font-bold rounded-full border border-emerald-500/30 uppercase tracking-wider">Aktivno</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sky-200 text-xs font-medium">Raspoloživo stanje</p>
+                                    <div class="text-2xl md:text-3xl font-bold font-display tracking-tight mt-1 flex items-baseline gap-1">
+                                        <span id="admin-balance-vito" class="font-display font-bold">50.000</span>
+                                        <span class="text-lg font-medium text-sky-200">€</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-white/10 flex justify-between items-center text-[10px] text-sky-200 font-mono">
+                                    <span>IBAN: HR93 2500 0003 VITO</span>
+                                    <i data-lucide="credit-card" class="w-4 h-4 text-sky-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. TRANSACTION AND MANAGEMENT PANEL -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- TRANSACTION FORM (7 cols) -->
+                        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                            <div class="p-6 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 shadow-sm">
+                                    <i data-lucide="arrow-left-right" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-800">Nova Bankarska Transakcija</h3>
+                                    <p class="text-xs text-slate-400">Upravljajte stanjem računa igrača</p>
+                                </div>
+                            </div>
+                            
+                            <form id="transaction-form" class="p-6 space-y-5">
+                                <!-- Select Player -->
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">1. Odaberite klijenta</label>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <button type="button" onclick="selectTxPlayer('erik')" id="tx-btn-erik" class="py-3 px-4 bg-slate-50 hover:bg-slate-100 border-2 border-slate-100 text-sm font-semibold rounded-xl text-slate-700 transition-all flex flex-col items-center gap-1 cursor-pointer">
+                                            <span class="text-lg">👨‍💻</span>
+                                            <span>Erik</span>
+                                        </button>
+                                        <button type="button" onclick="selectTxPlayer('nera')" id="tx-btn-nera" class="py-3 px-4 bg-slate-50 hover:bg-slate-100 border-2 border-slate-100 text-sm font-semibold rounded-xl text-slate-700 transition-all flex flex-col items-center gap-1 cursor-pointer">
+                                            <span class="text-lg">👩‍🎨</span>
+                                            <span>Nera</span>
+                                        </button>
+                                        <button type="button" onclick="selectTxPlayer('vito')" id="tx-btn-vito" class="py-3 px-4 bg-slate-50 hover:bg-slate-100 border-2 border-slate-100 text-sm font-semibold rounded-xl text-slate-700 transition-all flex flex-col items-center gap-1 cursor-pointer">
+                                            <span class="text-lg">🚀</span>
+                                            <span>Vito</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="tx-player" required>
+                                </div>
+
+                                <!-- Select Action -->
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">2. Vrsta transakcije</label>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button type="button" onclick="selectTxType('add')" id="tx-type-add" class="py-3 px-4 bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 border-2 border-slate-100 text-sm font-semibold rounded-xl text-slate-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                            <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500"></i>
+                                            <span>Dodaj novac</span>
+                                        </button>
+                                        <button type="button" onclick="selectTxType('subtract')" id="tx-type-subtract" class="py-3 px-4 bg-slate-50 hover:bg-rose-50 hover:text-rose-700 border-2 border-slate-100 text-sm font-semibold rounded-xl text-slate-700 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                            <i data-lucide="minus-circle" class="w-5 h-5 text-rose-500"></i>
+                                            <span>Oduzmi novac</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="tx-type" required>
+                                </div>
+
+                                <!-- Enter Amount -->
+                                <div>
+                                    <label for="tx-amount" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">3. Iznos (€)</label>
+                                    <div class="relative rounded-xl shadow-sm">
+                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <span class="text-slate-400 font-semibold text-base">€</span>
+                                        </div>
+                                        <input type="number" id="tx-amount" min="0.01" step="any" required class="block w-full pl-9 pr-4 py-3.5 border border-slate-200 rounded-xl text-base font-semibold placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500" placeholder="Upišite iznos">
+                                    </div>
+                                    
+                                    <!-- Quick Amount Buttons -->
+                                    <div class="grid grid-cols-4 gap-2 mt-2">
+                                        <button type="button" onclick="adjustAmount(1000)" class="py-1.5 px-2 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-slate-600 rounded-lg border border-slate-200 transition-all cursor-pointer">+1.000 €</button>
+                                        <button type="button" onclick="adjustAmount(5000)" class="py-1.5 px-2 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-slate-600 rounded-lg border border-slate-200 transition-all cursor-pointer">+5.000 €</button>
+                                        <button type="button" onclick="adjustAmount(10000)" class="py-1.5 px-2 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-slate-600 rounded-lg border border-slate-200 transition-all cursor-pointer">+10.000 €</button>
+                                        <button type="button" onclick="adjustAmount(20000)" class="py-1.5 px-2 bg-slate-50 hover:bg-slate-100 text-xs font-semibold text-slate-600 rounded-lg border border-slate-200 transition-all cursor-pointer">+20.000 €</button>
+                                    </div>
+                                </div>
+
+                                <!-- Transaction Description Presets -->
+                                <div>
+                                    <label for="tx-desc" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">4. Opis transakcije</label>
+                                    <input type="text" id="tx-desc" class="block w-full px-4 py-3 border border-slate-200 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all mb-2" placeholder="Napišite opis ili odaberite predefinirani">
+                                    
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <button type="button" onclick="setPresetDesc('Plaća')" class="py-1 px-2.5 bg-blue-50 hover:bg-blue-100 text-xs font-medium text-blue-700 rounded-full border border-blue-100 transition-all cursor-pointer">💼 Plaća</button>
+                                        <button type="button" onclick="setPresetDesc('Bonus')" class="py-1 px-2.5 bg-blue-50 hover:bg-blue-100 text-xs font-medium text-blue-700 rounded-full border border-blue-100 transition-all cursor-pointer">🎁 Bonus</button>
+                                        <button type="button" onclick="setPresetDesc('Prodaja Imovine')" class="py-1 px-2.5 bg-blue-50 hover:bg-blue-100 text-xs font-medium text-blue-700 rounded-full border border-blue-100 transition-all cursor-pointer">🏢 Prodaja Imovine</button>
+                                        <button type="button" onclick="setPresetDesc('Kupnja imovine')" class="py-1 px-2.5 bg-amber-50 hover:bg-amber-100 text-xs font-medium text-amber-700 rounded-full border border-amber-100 transition-all cursor-pointer">🏡 Kupnja imovine</button>
+                                        <button type="button" onclick="setPresetDesc('Porez')" class="py-1 px-2.5 bg-rose-50 hover:bg-rose-100 text-xs font-medium text-rose-700 rounded-full border border-rose-100 transition-all cursor-pointer">🧾 Porez</button>
+                                        <button type="button" onclick="setPresetDesc('Kazna')" class="py-1 px-2.5 bg-rose-50 hover:bg-rose-100 text-xs font-medium text-rose-700 rounded-full border border-rose-100 transition-all cursor-pointer">🚨 Kazna</button>
+                                    </div>
+                                </div>
+
+                                <div id="tx-error" class="hidden text-rose-500 text-xs font-medium bg-rose-50 p-3 rounded-lg border border-rose-100 flex items-center gap-2">
+                                    <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0"></i>
+                                    <span id="tx-error-msg"></span>
+                                </div>
+
+                                <button type="submit" class="w-full flex justify-center items-center gap-2 py-3.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 text-sm cursor-pointer mt-2">
+                                    <i data-lucide="send" class="w-4 h-4"></i> Izvrši transakciju
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- SETTINGS & SECURITY BACKUP (5 cols) -->
+                        <div class="lg:col-span-5 space-y-6">
+                            
+                            <!-- ACTIONS PANEL -->
+                            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 space-y-4">
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-widest flex items-center gap-2 mb-2">
+                                    <i data-lucide="cog" class="w-4 h-4 text-slate-400"></i> Kontrole sustava
+                                </h3>
+                                
+                                <button onclick="saveData(true)" class="w-full flex items-center justify-between py-3 px-4 bg-slate-50 hover:bg-brand-50 hover:text-brand-700 text-slate-700 text-xs font-semibold rounded-xl border border-slate-200 hover:border-brand-100 transition-all cursor-pointer">
+                                    <div class="flex items-center gap-2.5">
+                                        <i data-lucide="save" class="w-4.5 h-4.5 text-blue-500"></i>
+                                        <span>Ručno spremi podatke</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 uppercase font-mono">💾 Spremi</span>
+                                </button>
+
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button onclick="exportData()" class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-xl border border-slate-200 transition-all cursor-pointer text-center gap-1.5">
+                                        <i data-lucide="download" class="w-5 h-5 text-emerald-500"></i>
+                                        <span>Izvezi sigurnosnu kopiju (JSON)</span>
+                                    </button>
+                                    
+                                    <label class="flex flex-col items-center justify-center p-4 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold rounded-xl border border-slate-200 transition-all cursor-pointer text-center gap-1.5">
+                                        <i data-lucide="upload" class="w-5 h-5 text-purple-500"></i>
+                                        <span>Uvezi sigurnosnu kopiju (JSON)</span>
+                                        <input type="file" id="import-file" class="hidden" accept=".json" onchange="importData(event)">
+                                    </label>
+                                </div>
+
+                                <div class="pt-2 border-t border-slate-100">
+                                    <button onclick="confirmReset()" class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold rounded-xl border border-rose-100 transition-all cursor-pointer">
+                                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Resetiraj banku
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- BANNER FOR DOWNLOAD ZIP -->
+                            <div class="bg-gradient-to-br from-brand-800 to-brand-900 rounded-2xl shadow-lg text-white p-6 relative overflow-hidden">
+                                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px]"></div>
+                                <div class="relative z-10">
+                                    <div class="inline-flex items-center justify-center w-8 h-8 bg-white/10 rounded-lg mb-3">
+                                        <i data-lucide="folder-archive" class="w-4.5 h-4.5 text-blue-200"></i>
+                                    </div>
+                                    <h4 class="text-sm font-bold font-display">Preuzmite offline projekt</h4>
+                                    <p class="text-xs text-blue-200 mt-1 leading-relaxed">Želite igrati izvan mreže? Preuzmite gotovu ZIP datoteku koja radi odmah, bez instalacije.</p>
+                                    <button onclick="downloadOfflineZIP()" class="mt-4 w-full flex items-center justify-center gap-2 py-2 px-3 bg-white hover:bg-blue-50 text-brand-800 hover:text-brand-900 text-xs font-bold rounded-xl shadow transition-all cursor-pointer">
+                                        <i data-lucide="file-down" class="w-4 h-4"></i> Preuzmi ZIP datoteku
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. TRANSACTION HISTORY (Full) -->
+                    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                        <div class="p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-slate-50/50">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 shadow-sm">
+                                    <i data-lucide="history" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-800">Povijest Svih Transakcija</h3>
+                                    <p class="text-xs text-slate-400">Kronološki pregled svih uplata i isplata</p>
+                                </div>
+                            </div>
+
+                            <!-- Filter buttons -->
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <span class="text-xs font-semibold text-slate-400 mr-1.5">Filtriraj:</span>
+                                <button onclick="filterHistory('all')" id="filter-all" class="py-1 px-3 bg-brand-600 text-white text-xs font-semibold rounded-full shadow transition-all cursor-pointer">Sve</button>
+                                <button onclick="filterHistory('erik')" id="filter-erik" class="py-1 px-3 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-semibold rounded-full transition-all cursor-pointer">Erik</button>
+                                <button onclick="filterHistory('nera')" id="filter-nera" class="py-1 px-3 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-semibold rounded-full transition-all cursor-pointer">Nera</button>
+                                <button onclick="filterHistory('vito')" id="filter-vito" class="py-1 px-3 bg-slate-100 text-slate-600 hover:bg-slate-200 text-xs font-semibold rounded-full transition-all cursor-pointer">Vito</button>
+                            </div>
+                        </div>
+
+                        <!-- History List -->
+                        <div class="divide-y divide-slate-100 max-h-[400px] overflow-y-auto" id="admin-history-list">
+                            <!-- Dynamically generated list items -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- =============== B. PLAYER DASHBOARD =============== -->
+                <div id="player-view" class="hidden space-y-6 md:space-y-8 animate-fade-in">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                        
+                        <!-- CARD & QUICK STATISTICS (5 cols) -->
+                        <div class="md:col-span-5 space-y-6">
+                            
+                            <!-- Personalized Debit Card -->
+                            <div id="player-personal-card" class="rounded-2xl shadow-xl text-white p-8 relative overflow-hidden transform transition-all duration-300 border">
+                                <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-10 -mt-10 blur-xl"></div>
+                                
+                                <div class="flex justify-between items-start mb-10">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-2xl" id="player-avatar">👨‍💻</span>
+                                            <span class="font-display font-bold text-xl tracking-tight" id="player-card-name">Klijent</span>
+                                        </div>
+                                        <p class="text-[10px] text-white/60 tracking-wider font-mono mt-1" id="player-iban">HR93 2500 000...</p>
+                                    </div>
+                                    <div class="w-12 h-8 bg-white/10 rounded-md border border-white/20 backdrop-blur-sm flex items-center justify-center font-bold text-[10px] tracking-widest text-white/80">
+                                        VISA
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <p class="text-xs text-white/75 font-semibold uppercase tracking-wider">Raspoloživo stanje računa</p>
+                                    <div class="text-3xl md:text-4xl lg:text-5xl font-bold font-display tracking-tight flex items-baseline gap-1.5">
+                                        <span id="player-balance-value" class="font-display font-bold">50.000</span>
+                                        <span class="text-xl md:text-2xl font-medium text-white/80">€</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-12 flex justify-between items-end text-xs font-mono text-white/80">
+                                    <div>
+                                        <p class="text-[9px] text-white/50 uppercase tracking-wider font-sans mb-0.5">Vrijedi do</p>
+                                        <p>12/31</p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <!-- Gold microchip icon representation -->
+                                        <div class="w-10 h-7 bg-gradient-to-br from-amber-300 to-amber-500 rounded-md shadow border border-amber-400 flex flex-col justify-between p-1 opacity-90">
+                                            <div class="h-[1px] w-full bg-amber-200/55"></div>
+                                            <div class="h-[1px] w-full bg-amber-200/55"></div>
+                                            <div class="h-[1px] w-full bg-amber-200/55"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SEND MONEY FORM (P2P TRANSFER) -->
+                            <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm space-y-4" id="p2p-transfer-card">
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pošalji novac prijatelju</h4>
+                                    <p class="text-[11px] text-slate-500 mt-1">Prenesite sredstva izravno na račun drugog igrača u stvarnom vremenu.</p>
+                                </div>
+                                
+                                <form id="p2p-form" onsubmit="submitP2pTransfer(event)" class="space-y-4">
+                                    <!-- Recipient Selection -->
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-2">Primatelj</label>
+                                        <div class="grid grid-cols-2 gap-2" id="p2p-recipient-buttons">
+                                            <button type="button" id="p2p-btn-erik" onclick="selectP2pRecipient('erik')" class="flex items-center gap-2 p-3 rounded-xl border text-xs font-bold transition-all cursor-pointer bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200">
+                                                <span>👨‍💻</span> <span>Erik</span>
+                                            </button>
+                                            <button type="button" id="p2p-btn-nera" onclick="selectP2pRecipient('nera')" class="flex items-center gap-2 p-3 rounded-xl border text-xs font-bold transition-all cursor-pointer bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200">
+                                                <span>👩‍🎨</span> <span>Nera</span>
+                                            </button>
+                                            <button type="button" id="p2p-btn-vito" onclick="selectP2pRecipient('vito')" class="flex items-center gap-2 p-3 rounded-xl border text-xs font-bold transition-all cursor-pointer bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200">
+                                                <span>🚀</span> <span>Vito</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Amount Input -->
+                                    <div>
+                                        <label for="p2p-amount" class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Iznos (€)</label>
+                                        <div class="relative">
+                                            <input type="number" id="p2p-amount" placeholder="0.00" class="w-full pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 focus:border-brand-500 focus:bg-white rounded-xl text-sm font-black text-slate-800 transition-all outline-none" required>
+                                            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-black text-slate-400">€</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Description Input -->
+                                    <div>
+                                        <label for="p2p-desc" class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Poruka / Opis (opcionalno)</label>
+                                        <input type="text" id="p2p-desc" placeholder="npr. Za kupnju zemljišta, najam..." class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-brand-500 focus:bg-white rounded-xl text-xs font-bold text-slate-700 transition-all outline-none">
+                                    </div>
+                                    
+                                    <!-- Daily Limit Tracker -->
+                                    <div class="p-3 bg-slate-50 border border-slate-200/60 rounded-xl space-y-2">
+                                        <div class="flex justify-between text-[10px] font-bold uppercase text-slate-500 tracking-wide">
+                                            <span>Dnevni limit prijenosa:</span>
+                                            <span class="font-extrabold text-slate-700">5.000 €</span>
+                                        </div>
+                                        <div class="flex justify-between items-baseline text-xs">
+                                            <span class="text-[10px] font-medium text-slate-400">Preostalo za danas:</span>
+                                            <span id="p2p-limit-remaining" class="font-black text-emerald-600">5.000 €</span>
+                                        </div>
+                                        <!-- Progress bar -->
+                                        <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                            <div id="p2p-limit-bar" class="bg-gradient-to-r from-brand-500 to-indigo-600 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Error message container -->
+                                    <div id="p2p-error" class="hidden text-rose-600 text-xs font-semibold bg-rose-50 p-3 rounded-xl border border-rose-100 flex items-center gap-2">
+                                        <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0"></i>
+                                        <span id="p2p-error-text">Greška</span>
+                                    </div>
+                                    
+                                    <button type="submit" class="w-full py-3.5 px-4 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-xl border border-brand-700 transition-all cursor-pointer shadow-md active:scale-[0.98] flex items-center justify-center gap-2 uppercase tracking-wider">
+                                        Pošalji Sredstva
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- HELPFUL INFO BOX -->
+                            <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm space-y-4">
+                                <h4 class="text-sm font-bold text-slate-800">Upute za korištenje</h4>
+                                <ul class="text-xs text-slate-500 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                        <span>Stanje vašeg računa se ažurira u realnom vremenu čim bankar unese promjenu.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                        <span>Povijest ispod prikazuje isključivo vaše transakcije (plaća, kupnja, porez).</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                                        <span>Možete samostalno slati novac drugim igračima do 5.000 € dnevno. Ostale uplate i isplate i dalje vrši isključivo bankar (Admin).</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- PERSONAL TRANSACTION HISTORY (7 cols) -->
+                        <div class="md:col-span-7 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 shadow-sm">
+                                        <i data-lucide="history" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base font-bold text-slate-800">Povijest Mojih Transakcija</h3>
+                                        <p class="text-xs text-slate-400">Pregled svih promjena stanja na vašem računu</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full" id="player-history-count">Ukupno: 0</span>
+                            </div>
+
+                            <!-- History list for player -->
+                            <div class="divide-y divide-slate-100 max-h-[450px] overflow-y-auto" id="player-history-list">
+                                <!-- Dynamically filled with player-specific transactions -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- =============== MODALS =============== -->
+    
+    <!-- 1. RESET BANK CONFIRMATION MODAL -->
+    <div id="reset-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-100 overflow-hidden transform transition-all duration-300 scale-95 opacity-0" id="reset-modal-card">
+            <div class="p-6 text-center space-y-4">
+                <div class="w-14 h-14 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mx-auto shadow-inner">
+                    <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-lg font-bold text-slate-800">Resetiranje Kalničke Banke</h3>
+                    <p class="text-sm text-slate-500">Jeste li sigurni da želite resetirati Kalničku Banku?</p>
+                </div>
+                <div class="bg-amber-50 rounded-xl p-3 border border-amber-100 text-xs text-amber-700 text-left flex items-start gap-2">
+                    <i data-lucide="info" class="w-4.5 h-4.5 flex-shrink-0 mt-0.5"></i>
+                    <span>Ova radnja će nepovratno vratiti sve račune klijenata (Erik, Nera, Vito) na početno stanje od <strong>50.000 €</strong> te će izbrisati cijelu povijest transakcija.</span>
+                </div>
+            </div>
+            
+            <div class="bg-slate-50 px-6 py-4 flex gap-3 justify-end border-t border-slate-100">
+                <button onclick="closeResetModal()" class="py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-700 border border-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">
+                    Odustani
+                </button>
+                <button onclick="executeReset()" class="py-2.5 px-4 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer">
+                    Da, resetiraj banku
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm bg-slate-900 text-white rounded-xl shadow-2xl p-4 flex items-center gap-3 border border-slate-800">
+        <div id="toast-icon-bg" class="w-8 h-8 rounded-lg flex items-center justify-center text-sm">
+            ✅
+        </div>
+        <div>
+            <p id="toast-msg" class="text-xs font-semibold text-slate-100">Uspješno spremljeno!</p>
+        </div>
+    </div>
+
+    <!-- JSZip via CDN (needed for the offline zip packager) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Core Application Logic -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* --------------------------------------------------
+   Kalnička Banka - Dodatni Stilovi i Animacije
+   -------------------------------------------------- */
+
+/* Smooth view transitions */
+.animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom card gradients for players */
+#player-personal-card.bg-erik {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1d4ed8 100%);
+    border-color: #312e81;
+}
+
+#player-personal-card.bg-nera {
+    background: linear-gradient(135deg, #2e1065 0%, #4c1d95 40%, #7c3aed 100%);
+    border-color: #4c1d95;
+}
+
+#player-personal-card.bg-vito {
+    background: linear-gradient(135deg, #083344 0%, #0e7490 40%, #06b6d4 100%);
+    border-color: #0e7490;
+}
+
+/* Scrollbar tuning */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Layout spacing utility for responsive devices */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Subtle border hover effect for buttons */
+.btn-select-active {
+    background-color: #f0f7ff !important;
+    border-color: #0066cc !important;
+    color: #0066cc !important;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 102, 204, 0.1), 0 2px 4px -1px rgba(0, 102, 204, 0.06);
+}
+
+.btn-type-active-add {
+    background-color: #f0fdf4 !important;
+    border-color: #22c55e !important;
+    color: #15803d !important;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.1);
+}
+
+.btn-type-active-subtract {
+    background-color: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #b91c1c !important;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1);
+}
+
+/* Modal open animation helper */
+.modal-show {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
